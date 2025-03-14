@@ -46,6 +46,12 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_sesions = math.floor(reps/2)
+        for _ in range(work_sesions):
+            marks += "✔"
+        checkmarks.config(text=marks)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -65,7 +71,7 @@ canvas.grid(column=1,row=1)
 start_btn = Button(text="Start", bg="white", border=0, width=5, height=2, command=start_timer)
 start_btn.grid(column=0, row=2)
 
-checkmarks = Label(text="✔", font=(FONT_NAME, 12, "bold"), fg=GREEN, bg=YELLOW)
+checkmarks = Label(font=(FONT_NAME, 12, "bold"), fg=GREEN, bg=YELLOW)
 checkmarks.grid(column=1, row=3)
 
 reset_btn = Button(text="Reset", bg="white", border=0, width=5, height=2)
